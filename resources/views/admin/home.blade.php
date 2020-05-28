@@ -3,44 +3,39 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-8">
+        <div class="col-4">
             <div class="card">
-                <div class="card-header"></div>
-                <div class="card-body">
-                    <h5 class="card-title text-center">
-                        <strong>Nova Obra</strong>
-                    </h5>
-                    <form action="{{ route('admin.obras.store') }}" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <input id="nome" type="text"
-                                class="form-control @error('nome') is-invalid @enderror"
-                                name="nome"
-                                caption="nome"
-                                value="{{ old('nome') }}">
-                                @error('nome')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                        </div>
-                        <div class="form-group">
-                            <textarea id="summernote" name="conteudo" class="@error('conteudo') is-invalid @enderror"></textarea>
-
-                            @error('conteudo')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                        {{-- <div class="form-group">
-                            <label for="name">Cor</label>
-                            <input type="color" name="color" id="color" class="form-control">
-                        </div> --}}
-                        <div class="form-group pull-right">
-                            <button type="submit" class="btn btn-success">Criar obra</button>
-                        </div>
-                    </form>
+                <img class="card-img-top"
+                    src="https://via.placeholder.com/268x130.png"
+                    alt="Card image cap">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Minhas obras</h5>
+                    <p class="card-text">Clique para visualizar as suas obras criadas.</p>
+                    <a href="{{ route('admin.obras.show') }}" class="btn btn-primary">Visualizar obras</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <img class="card-img-top"
+                    src="https://via.placeholder.com/268x130.png"
+                    alt="Card image cap">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Meu perfil</h5>
+                    <p class="card-text">Clique para visualizar o seu perfil.</p>
+                    <a href="#" class="btn btn-primary">Visualizar perfil</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <img class="card-img-top"
+                    src="https://via.placeholder.com/268x130.png"
+                    alt="Card image cap">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Meu perfil</h5>
+                    <p class="card-text">Clique para visualizar o seu perfil.</p>
+                    <a href="#" class="btn btn-primary">Visualizar perfil</a>
                 </div>
             </div>
         </div>

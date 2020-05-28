@@ -22,5 +22,8 @@ Auth::routes();
 Route::prefix('admin')->group(function(){
     Route::get('/home', 'HomeController@index')->name('admin.home');
 
+    Route::get('/obras', 'ObrasController@show')->name('admin.obras.show');
+    Route::get('/obras/{obras}/edit', 'ObrasController@edit')->name('admin.obras.edit');
+    Route::get('/obras/novo', 'ObrasController@create')->name('admin.obras.create');
     Route::post('/home', 'ObrasController@store')->name('admin.obras.store');
 });

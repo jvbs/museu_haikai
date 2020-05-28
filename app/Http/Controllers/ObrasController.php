@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Obra;
+use App\User;
 use Illuminate\Http\Request;
 
 class ObrasController extends Controller
@@ -12,16 +13,9 @@ class ObrasController extends Controller
         $this->middleware('auth');
     }
 
-
-    public function index()
-    {
-        //
-    }
-
-
     public function create()
     {
-        //
+        return view('admin.obras.create');
     }
 
 
@@ -34,13 +28,15 @@ class ObrasController extends Controller
 
         auth()->user()->obras()->create($data);
 
-        redirect(route('home'));
+        return redirect(route('admin.obras.show'));
     }
 
 
-    public function show(Obra $obra)
+    public function show()
     {
-        //
+        $obras = Obra::all()->where('user_id', auth()->user()->id);
+
+        return view('admin.obras.show', compact('obras'));
     }
 
 
