@@ -25,5 +25,8 @@ Route::prefix('admin')->group(function(){
     Route::get('/obras', 'ObrasController@show')->name('admin.obras.show');
     Route::get('/obras/{obras}/edit', 'ObrasController@edit')->name('admin.obras.edit');
     Route::get('/obras/novo', 'ObrasController@create')->name('admin.obras.create');
-    Route::post('/home', 'ObrasController@store')->name('admin.obras.store');
+    Route::post('/obras', 'ObrasController@store')->name('admin.obras.store');
+    Route::put('/obras/{obras}/edit', 'ObrasController@update')->name('admin.obras.update');
+    Route::delete('{obras}', 'ObrasController@destroy')->name('admin.obras.destroy');
+
 });

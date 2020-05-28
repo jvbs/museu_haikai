@@ -26,9 +26,13 @@
                         @foreach ($obras as $obra)
                             <tr>
                                 <td>{{ $obra->nome }}</td>
-                                <td>
-                                    <a class="btn btn-warning" href="{{ route('admin.obras.edit', $obra->id) }}">Editar</a>
-                                    <a class="btn btn-danger" href="#">Excluir</a>
+                                <td class="d-flex">
+                                    <a class="btn btn-sm btn-warning" href="{{ route('admin.obras.edit', $obra->id) }}">Editar</a>
+                                    <form action="{{ route('admin.obras.destroy', $obra->id) }}" onsubmit="return confirm('Você tem certeza que excluir {{ $obra->nome }}?')" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-circle btn-sm btn-danger" style="margin-left:2px">Excluir</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

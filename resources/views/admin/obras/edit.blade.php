@@ -11,16 +11,17 @@
                 <div class="card-header"></div>
                 <div class="card-body">
                     <h5 class="card-title text-center">
-                        <strong>Nova Obra</strong>
+                        <strong>Editar Obra</strong>
                     </h5>
-                    <form action="{{ route('admin.obras.store') }}" method="POST">
+                    <form action="{{ route('admin.obras.update', $obra->id) }}" method="POST">
                         @csrf
+                        @method('PUT')
                         <div class="form-group">
                             <input id="nome" type="text"
                                 class="form-control @error('nome') is-invalid @enderror"
                                 name="nome"
                                 caption="nome"
-                                value="{{ old('nome') }}">
+                                value="{{ old('nome') ?? $obra->nome }}">
                                 @error('nome')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -28,7 +29,12 @@
                                 @enderror
                         </div>
                         <div class="form-group">
-                            <textarea id="summernote" name="conteudo" class="@error('conteudo') is-invalid @enderror"></textarea>
+                            <textarea
+                                id="summernote"
+                                name="conteudo"
+                                class="@error('conteudo') is-invalid @enderror">
+                                    {{ old('conteudo') ?? $obra->conteudo }}
+                            </textarea>
 
                             @error('conteudo')
                                 <span class="invalid-feedback" role="alert">
@@ -41,7 +47,7 @@
                             <input type="color" name="color" id="color" class="form-control">
                         </div> --}}
                         <div class="form-group pull-right">
-                            <button type="submit" class="btn btn-success">Criar obra</button>
+                            <button type="submit" class="btn btn-success">Editar obra</button>
                         </div>
                     </form>
                 </div>

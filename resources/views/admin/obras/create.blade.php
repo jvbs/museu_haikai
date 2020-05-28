@@ -27,8 +27,12 @@
                                     </span>
                                 @enderror
                         </div>
-                        <div class="form-group">
-                            <textarea id="summernote" name="conteudo" class="@error('conteudo') is-invalid @enderror"></textarea>
+                        <textarea
+                            id="summernote"
+                            name="conteudo"
+                            class="@error('conteudo') is-invalid @enderror">
+                                {{ old('conteudo') }}
+                        </textarea>
 
                             @error('conteudo')
                                 <span class="invalid-feedback" role="alert">

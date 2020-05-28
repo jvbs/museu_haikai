@@ -40,20 +40,36 @@ class ObrasController extends Controller
     }
 
 
-    public function edit(Obra $obra)
+    public function edit(Obra $obras)
     {
-        //
+        return view('admin.obras.edit')->with('obra', $obras);
     }
 
 
-    public function update(Request $request, Obra $obra)
+    public function update(Request $request, Obra $obras)
     {
-        //
+        $data = $request->validate([
+            'nome' => 'required|unique:obras|between:3,45',
+            'conteudo' => 'required|unique:obras'
+        ]);
+
+        $request = collect($request->all())->filter(function($value) {
+            return null !== $value;
+        })->toArray();
+
+
+        $obras->update($request);
+
+        // auth()->user()->obras->update($data);
+
+        return redirect(route('admin.obras.show'));
     }
 
 
-    public function destroy(Obra $obra)
+    public function destroy(Obra $obras)
     {
-        //
+        if($obras->delete()){
+            return redirect(route('admin.obras.show'));
+        }
     }
 }
