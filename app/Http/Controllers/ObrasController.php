@@ -49,8 +49,8 @@ class ObrasController extends Controller
     public function update(Request $request, Obra $obras)
     {
         $data = $request->validate([
-            'nome' => 'required|unique:obras|between:3,45',
-            'conteudo' => 'required|unique:obras'
+            'nome' => 'required|between:3,45',
+            'conteudo' => 'required'
         ]);
 
         $request = collect($request->all())->filter(function($value) {
@@ -59,8 +59,6 @@ class ObrasController extends Controller
 
 
         $obras->update($request);
-
-        // auth()->user()->obras->update($data);
 
         return redirect(route('admin.obras.show'));
     }
