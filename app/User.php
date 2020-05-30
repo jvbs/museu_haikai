@@ -40,4 +40,8 @@ class User extends Authenticatable
     public function obras(){
         return $this->hasMany(Obra::class)->orderBy('created_at', 'desc');
     }
+
+    public function perfil(){
+        return $this->hasOne(Obra::class);
+    }
 }

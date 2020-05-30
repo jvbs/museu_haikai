@@ -29,4 +29,6 @@ Route::prefix('admin')->group(function(){
     Route::put('/obras/{obras}/edit', 'ObrasController@update')->name('admin.obras.update');
     Route::delete('{obras}', 'ObrasController@destroy')->name('admin.obras.destroy');
 
+    Route::get('/perfil/{user}/edit', 'PerfilController@edit')->name('admin.perfil.edit');
+
 });
