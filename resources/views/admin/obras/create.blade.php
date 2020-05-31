@@ -27,24 +27,22 @@
                                     </span>
                                 @enderror
                         </div>
-                        <textarea
-                            id="summernote"
-                            name="conteudo"
-                            class="@error('conteudo') is-invalid @enderror">
+                        <div class="form-group">
+                            <textarea
+                                id="summernote"
+                                name="conteudo"
+                                class="@error('conteudo') is-invalid @enderror">
                                 {{ old('conteudo') }}
-                        </textarea>
+                            </textarea>
 
                             @error('conteudo')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
                             @enderror
                         </div>
-                        {{-- <div class="form-group">
-                            <label for="name">Cor</label>
-                            <input type="color" name="color" id="color" class="form-control">
-                        </div> --}}
-                        <div class="form-group pull-right">
+
+                        <div class="form-group">
                             <button type="submit" class="btn btn-success">Criar obra</button>
                         </div>
                     </form>

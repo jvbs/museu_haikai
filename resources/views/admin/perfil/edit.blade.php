@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container-fluid">
-    <a class="btn btn-secondary btn-sm" href="{{ route('admin.obras.show') }}">Voltar</a>
+    <a class="btn btn-secondary btn-sm" href="{{ route('admin.home') }}">Voltar</a>
 </div>
 <div class="container">
     <div class="row justify-content-center">
@@ -13,7 +13,7 @@
                     <h5 class="card-title text-center">
                         <strong>Editar Perfil</strong>
                     </h5>
-                    <form action="" method="POST">
+                    <form action="{{ route('admin.perfil.update', $user->id) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
@@ -61,9 +61,7 @@
                             class="form-control @error('aboutme') is-invalid @enderror"
                             name="aboutme"
                             caption="aboutme"
-                            rows="4">
-                                {{ old('aboutme') ?? $user->aboutme }}
-                            </textarea>
+                            rows="4">{{ old('aboutme') ?? $user->aboutme }}</textarea>
                             @error('aboutme')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

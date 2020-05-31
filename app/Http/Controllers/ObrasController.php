@@ -48,7 +48,7 @@ class ObrasController extends Controller
 
     public function update(Request $request, Obra $obras)
     {
-        $data = $request->validate([
+        $request->validate([
             'nome' => 'required|between:3,45',
             'conteudo' => 'required'
         ]);

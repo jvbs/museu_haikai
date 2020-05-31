@@ -38,7 +38,16 @@ class PerfilController extends Controller
 
     public function update(Request $request, User $user)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|between:3,45',
+            'email' => 'required|email',
+            'site' => 'url',
+            'aboutme' => ''
+        ]);
+
+        $user->update($data);
+
+        return view('admin.home');
     }
 
 
