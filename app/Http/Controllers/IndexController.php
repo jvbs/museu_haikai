@@ -8,7 +8,7 @@ use App\Obra;
 class IndexController extends Controller
 {
     public function index(){
-        $obras = Obra::all();
+        $obras = Obra::with('user')->get();
 
         return view('welcome')->with('obras', $obras);
     }
