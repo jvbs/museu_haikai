@@ -20,6 +20,7 @@
                                 class="form-control @error('nome') is-invalid @enderror"
                                 name="nome"
                                 caption="nome"
+                                placeholder="Título da Obra"
                                 value="{{ old('nome') }}">
                                 @error('nome')
                                     <span class="invalid-feedback" role="alert">
@@ -40,6 +41,21 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
+                        </div>
+                        <div class="form-group d-flex">
+                            <label class="pt-2 pr-2" for="timer">Duração:</label>
+                            <input
+                                type="range"
+                                id="timer"
+                                name="timer"
+                                min="5"
+                                max="60"
+                                value="{{ old('timer') ?? 10 }}"
+                                style="width: 100%"/>
+                            <div class="timer-group pl-3 pr-3 pt-2 d-flex">
+                                <span class="pr-2 h5" id="timer-caption">5</span>
+                                <strong>segundos</strong>
+                            </div>
                         </div>
 
                         <div class="form-group">

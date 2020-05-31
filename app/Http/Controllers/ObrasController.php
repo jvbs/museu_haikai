@@ -23,7 +23,8 @@ class ObrasController extends Controller
     {
         $data = $request->validate([
             'nome' => 'required|unique:obras|between:3,45',
-            'conteudo' => 'required|unique:obras'
+            'conteudo' => 'required|unique:obras',
+            'timer' => 'required|integer|between:5,60'
         ]);
 
         auth()->user()->obras()->create($data);

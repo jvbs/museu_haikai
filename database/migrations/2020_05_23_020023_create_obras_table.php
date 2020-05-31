@@ -17,6 +17,7 @@ class CreateObrasTable extends Migration
             $table->id();
             $table->string('nome', 50);
             $table->text('conteudo');
+            $table->tinyInteger('timer');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 

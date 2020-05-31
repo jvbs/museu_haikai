@@ -42,10 +42,23 @@
                                 </span>
                             @enderror
                         </div>
-                        {{-- <div class="form-group">
-                            <label for="name">Cor</label>
-                            <input type="color" name="color" id="color" class="form-control">
-                        </div> --}}
+
+                        <div class="form-group d-flex">
+                            <label class="pt-2 pr-2" for="timer">Duração:</label>
+                            <input
+                                type="range"
+                                id="timer"
+                                name="timer"
+                                min="5"
+                                max="60"
+                                value="{{ old('timer') ?? $obra->timer }}"
+                                style="width: 100%"/>
+                            <div class="timer-group pl-3 pr-3 pt-2 d-flex">
+                                <span class="pr-2 h5" id="timer-caption">5</span>
+                                <strong>segundos</strong>
+                            </div>
+                        </div>
+
                         <div class="form-group pull-right">
                             <button type="submit" class="btn btn-success">Editar obra</button>
                         </div>
