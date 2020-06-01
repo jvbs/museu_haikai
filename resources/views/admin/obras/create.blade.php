@@ -68,8 +68,6 @@
                         <div class="form-group">
                             <button type="submit" class="btn btn-success">Criar obra</button>
                         </div>
-
-                        <small>Salvo pela última vez: <span id="lastsaved"></span></small>
                     </form>
                 </div>
             </div>

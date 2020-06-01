@@ -1,14 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid ">
+<div class="container-fluid mb-3">
     <div class="row">
 
         <div class="col-1">
-            <a href="{{ route('admin.home') }}" class="pt-12 pull-right btn btn-sm btn-secondary">Voltar</a>
+            <a href="{{ route('admin.home') }}" class="btn btn-sm btn-secondary">Voltar</a>
+            {{-- <a class="btn btn-sm btn-primary hidden-print" href="'.$url.'">rrr</a> --}}
         </div>
-        <div class="col-1 offset-10">
-            <a href="{{ route('admin.obras.create') }}" class="pt-12 pull-right btn btn-sm btn-success">Nova Obra</a>
+        <div class="col-11">
+            <a href="{{ route('admin.obras.create') }}" class="pull-right btn btn-sm btn-success">Nova Obra</a>
+            {{-- <a class="pager-button pull-right btn btn-sm btn-primary hidden-print" href="'.$url.'">rrr</a> --}}
         </div>
     </div>
 </div>
