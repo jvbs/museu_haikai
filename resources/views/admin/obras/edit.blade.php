@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    @media(max-width:582px){
+        #timer-area {
+            display: block !important;
+        }
+    }
+</style>
 <div class="container-fluid">
     <a class="btn btn-secondary btn-sm" href="{{ route('admin.obras.show') }}">Voltar</a>
 </div>
@@ -43,7 +50,7 @@
                             @enderror
                         </div>
 
-                        <div class="form-group d-flex">
+                        <div id="timer-area" class="form-group d-flex">
                             <label class="pt-2 pr-2" for="timer">Duração:</label>
                             <input
                                 type="range"
