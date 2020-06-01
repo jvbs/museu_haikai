@@ -46,6 +46,8 @@ Crie uma chave para a aplicação e gere tabelas:
 php artisan key:generate
 
 php artisan migrate
+
+php artisan db:seed
 ```
 
 Agora execute o comando para iniciar a ferramenta:
