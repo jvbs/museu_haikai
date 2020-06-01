@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'IndexController@index')->name('index');
+Route::get('/{user}/artista', 'IndexController@index')->name('index');
 
 Auth::routes();
 

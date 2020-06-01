@@ -76,10 +76,10 @@
                                         </textarea>
                                         <div class="justify-content-between align-items-center">
                                             <div class="btn-group">
-                                                <button type="button" class="btn btn-sm btn-outline-secondary open-modal"><i class="fa fa-eye"></i> Visualizar obra</button>
-                                                <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa fa-user"></i> <span class="obra-artista">{{ $obra->user->name }}</span></button>
+                                                <a class="obras-btn btn btn-sm btn-outline-secondary open-modal"><i class="fa fa-eye"></i> Visualizar obra</a>
+                                                <a href="{{}}" class="obras-btn btn btn-sm btn-outline-secondary"><i class="fa fa-user"></i> <span class="obra-artista">{{ $obra->user->name }}</span></a>
                                             </div>
-                                            <div class="info d-flex">
+                                            <div class="info d-flex mt-2">
                                                 <small class="text-muted"><span class="obra-timer">{{ $obra->timer }}</span> segundos</small>
                                             </div>
                                         </div>
@@ -93,9 +93,9 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="modalTitle"></h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
-                                    </button>
+                                    </button> --}}
                                 </div>
                                 <div class="modal-body" id="modalBody"></div>
                                 <div class="modal-footer">

@@ -21,5 +21,17 @@ $(".open-modal").click(function(){
         keyboard: false
     });
 
-    
+    displayCountdown(timer)
 });
+
+function displayCountdown(timer){
+    countdown = setInterval(function() {
+        timer--;
+        $("#modalTimer").html(timer);
+        if(timer <= 0){
+            clearInterval(countdown)
+            $("#modal-obra").modal("hide")
+        }
+    }, 1000);
+
+}
