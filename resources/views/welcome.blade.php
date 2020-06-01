@@ -8,65 +8,11 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/index.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
-        <style>
-            :root {
-            --jumbotron-padding-y: 3rem;
-            }
-
-            .jumbotron {
-                padding-top: var(--jumbotron-padding-y);
-                padding-bottom: var(--jumbotron-padding-y);
-                margin-bottom: 0;
-                background-color: #fff;
-            }
-            @media (min-width: 768px) {
-                .jumbotron {
-                    padding-top: calc(var(--jumbotron-padding-y) * 2);
-                    padding-bottom: calc(var(--jumbotron-padding-y) * 2);
-                }
-            }
-
-            .jumbotron p:last-child {
-                margin-bottom: 0;
-            }
-
-            .jumbotron-heading {
-                font-weight: 300;
-            }
-
-            .jumbotron .container {
-                max-width: 40rem;
-            }
-
-            footer {
-                padding-top: 3rem;
-                padding-bottom: 3rem;
-            }
-
-            footer p {
-                margin-bottom: .25rem;
-            }
-
-            .box-shadow {
-                box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-            .position-ref {
-                position: relative;
-            }
-        </style>
+        <script src="{{ asset('js/index.js') }}" defer></script>
     </head>
     <body>
         <header>
@@ -123,20 +69,41 @@
                             <div class="col-md-4">
                                 <div class="card mb-4 box-shadow">
                                     <div class="card-body">
-                                        <p class="card-text">{{ $obra->nome }}</p>
+                                        @php $rand =  rand(0, (count($cores)-1)) @endphp
+                                        <p class="card-text obra-titulo" style="background-color: {{ $cores[$rand]->background_color }}; color: {{ $cores[$rand]->font_color }}" >{{ $obra->nome }}</p>
+                                        <textarea type="text" class="obra-conteudo d-none">
+                                            {{ $obra->conteudo }}
+                                        </textarea>
                                         <div class="justify-content-between align-items-center">
                                             <div class="btn-group">
-                                                <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa fa-eye"></i> Visualizar obra</button>
-                                                <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa fa-user"></i> {{ $obra->user->name }}</button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary open-modal"><i class="fa fa-eye"></i> Visualizar obra</button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa fa-user"></i> <span class="obra-artista">{{ $obra->user->name }}</span></button>
                                             </div>
                                             <div class="info d-flex">
-                                                <small class="text-muted">{{ $obra->timer }} segundos</small>
+                                                <small class="text-muted"><span class="obra-timer">{{ $obra->timer }}</span> segundos</small>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         @endforeach
+                    </div>
+                    <div class="modal fade" id="modal-obra" tabindex="-1" role="dialog" aria-labelledby="modal-obraTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalTitle"></h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body" id="modalBody"></div>
+                                <div class="modal-footer">
+                                    <i class="fa fa-clock-o"></i><span class="mr-auto" id="modalTimer"></span>
+                                    <i class="fa fa-user"></i><span id="modalArtista"></span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

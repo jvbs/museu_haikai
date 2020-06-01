@@ -24,6 +24,11 @@ class ColorSeeder extends Seeder
             ['background_color' => '#b4b8ab', 'font_color' => '#000'],
             ['background_color' => '#6F2DBA', 'font_color' => '#fff'],
             ['background_color' => '#4AC627', 'font_color' => '#fff'],
+            ['background_color' => '#FFE4E1', 'font_color' => '#000'],
+            ['background_color' => '#FAF0E6', 'font_color' => '#000'],
+            ['background_color' => '#DB7093', 'font_color' => '#000'],
+            ['background_color' => '#F4A460', 'font_color' => '#000'],
+            ['background_color' => '#3CB371', 'font_color' => '#fff'],
         ]);
     }
 }
