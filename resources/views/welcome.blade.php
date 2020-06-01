@@ -77,7 +77,7 @@
                                         <div class="justify-content-between align-items-center">
                                             <div class="btn-group">
                                                 <a class="obras-btn btn btn-sm btn-outline-secondary open-modal"><i class="fa fa-eye"></i> Visualizar obra</a>
-                                                <a href="{{}}" class="obras-btn btn btn-sm btn-outline-secondary"><i class="fa fa-user"></i> <span class="obra-artista">{{ $obra->user->name }}</span></a>
+                                                <a href="#" class="obras-btn btn btn-sm btn-outline-secondary"><i class="fa fa-user"></i> <span class="obra-artista">{{ $obra->user->name }}</span></a>
                                             </div>
                                             <div class="info d-flex mt-2">
                                                 <small class="text-muted"><span class="obra-timer">{{ $obra->timer }}</span> segundos</small>
