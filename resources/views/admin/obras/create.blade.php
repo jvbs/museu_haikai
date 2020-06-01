@@ -11,9 +11,9 @@
 <div class="container-fluid">
     <a class="btn btn-secondary btn-sm" href="{{ route('admin.obras.show') }}">Voltar</a>
 </div>
-<div class="container">
+<div class="container mt-3">
     <div class="row justify-content-center">
-        <div class="col-8">
+        <div class="col-lg-8 col-xs-12">
             <div class="card">
                 <div class="card-header"></div>
                 <div class="card-body">
