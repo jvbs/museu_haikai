@@ -35,11 +35,11 @@ npm install
 Dentro do projeto, crie um arquivo `.env` na raiz do projeto (copie o conteúdo do `.env-example`), cole e, neste arquivo, altere as variáveis de ambiente para configurar seu banco de dados:
 
 ```bash
-DB_HOST=[host do seu banco]
-DB_PORT=[porta do seu banco]
-DB_DATABASE=[banco de dados]
-DB_USERNAME=[usuario server]
-DB_PASSWORD=[senha server]
+DB_HOST=MY_HOST
+DB_PORT=MY_HOST_PORT
+DB_DATABASE=MY_DB
+DB_USERNAME=MY_USERNAME
+DB_PASSWORD=MY_PASS
 ```
 Crie uma chave para a aplicação e gere tabelas:
 ```bash
