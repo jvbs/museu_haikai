@@ -20,15 +20,16 @@
                     <h5 class="card-title text-center">
                         <strong>Nova Obra</strong>
                     </h5>
-                    <form action="{{ route('admin.obras.store') }}" method="POST">
+                    <form id="form-obra" onload="load()" action="{{ route('admin.obras.store') }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <input id="nome" type="text"
+                            <input
+                                id="nome"
+                                type="text"
                                 class="form-control @error('nome') is-invalid @enderror"
                                 name="nome"
                                 caption="nome"
-                                placeholder="Título da Obra"
-                                value="{{ old('nome') }}">
+                                placeholder="Título da Obra">
                                 @error('nome')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -40,7 +41,6 @@
                                 id="summernote"
                                 name="conteudo"
                                 class="@error('conteudo') is-invalid @enderror">
-                                {{ old('conteudo') }}
                             </textarea>
 
                             @error('conteudo')
@@ -57,7 +57,7 @@
                                 name="timer"
                                 min="5"
                                 max="60"
-                                value="{{ old('timer') ?? 10 }}"
+                                value="10"
                                 style="width: 100%"/>
                             <div class="timer-group pl-3 pr-3 pt-2 d-flex">
                                 <span class="pr-2 h5" id="timer-caption">5</span>
@@ -68,6 +68,8 @@
                         <div class="form-group">
                             <button type="submit" class="btn btn-success">Criar obra</button>
                         </div>
+
+                        <small>Salvo pela última vez: <span id="lastsaved"></span></small>
                     </form>
                 </div>
             </div>

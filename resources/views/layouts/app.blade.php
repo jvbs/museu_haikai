@@ -19,6 +19,7 @@
     <script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}" defer></script>
     <script src="{{ asset('plugins/summernote/lang/summernote-pt-BR.min.js') }}" defer></script>
     <script src="{{ asset('js/init.js') }}" defer></script>
+    <script src="{{ asset('js/localStorage.js') }}" defer></script>
 </head>
 <body>
     <div id="app">
