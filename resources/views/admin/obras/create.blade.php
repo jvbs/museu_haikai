@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<script src="{{ asset('js/localStorage.js') }}" defer></script>
 <style>
     @media(max-width:582px){
         #timer-area {
