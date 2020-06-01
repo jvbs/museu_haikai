@@ -53,9 +53,9 @@
                         <i class="fa fa-header" aria-hidden="true"></i> <strong>{{ config('app.name', 'Laravel') }}</strong>
                     </h1>
                     <p class="lead text-muted">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, porro sequi, quis quod explicabo
-                        dolores, quam enim quibusdam necessitatibus et perspiciatis nobis delectus a voluptate odio deleniti.
-                        Commodi, nostrum rerum.
+                        Sejam bem-vindos ao Museu Haikai, realizamos suas publicações de obras textuais.
+                        Venham compartilhar suas reflexões, poesias, frases, pensamentos,
+                        críticas com os internautas da plataforma.
                     </p>
                     <p>
                         <a href="#obras" class="btn btn-secondary my-2">Ver Obras</a>

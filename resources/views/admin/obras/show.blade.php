@@ -28,7 +28,7 @@
                                 <td>{{ $obra->nome }}</td>
                                 <td class="d-flex">
                                     <a class="btn btn-sm btn-warning mr-1" href="{{ route('admin.obras.edit', $obra->id) }}">Editar</a>
-                                    <form action="{{ route('admin.obras.destroy', $obra->id) }}" onsubmit="return confirm('Você tem certeza que excluir {{ $obra->nome }}?')" method="POST">
+                                    <form action="{{ route('admin.obras.destroy', $obra->id) }}" onsubmit="return confirm('Você tem certeza que excluir a obra: {{ $obra->nome }}?')" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-circle btn-sm btn-danger ml-1" style="margin-left:2px">Excluir</button>
