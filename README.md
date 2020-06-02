@@ -3,11 +3,11 @@
 ## Museu Haikai
 
 Sejam bem-vindos ao Museu Haikai, realizamos suas publicações de obras textuais.
-Venham compartilhar suas reflexões, poesias, frases, pensamentos,    críticas com os internautas da plataforma.
+Venham compartilhar suas reflexões, poesias, frases, pensamentos, críticas com os internautas da plataforma.
 
 ## Requisitos
 
-- PHP 
+- PHP ou Pacotes (Xampp, Wampp, Mampp, etc)
 - MySQL
 - NPM
 - Composer
@@ -16,36 +16,41 @@ Venham compartilhar suas reflexões, poesias, frases, pensamentos,    críticas 
 
 ## Como instalar
 
-Escolha um diretório de seu preferência e rode o seguinte comando:
+Escolha um diretório de seu preferência e rode os seguintes comandos:
 
 ```bash
 git clone https://github.com/jvbs/museu_haikai.git
+
 cd museu_haikai/
 ```
 
-Agora iremos instalar as dependências do projeto, utilizando o comando:
+Agora iremos instalar as dependências do projeto, utilizando os comandos:
 
 ```bash
 composer install
+
 npm install
 ```
 
-Crie um arquivo `.env` na raiz do projeto (utilize o conteúdo do `.env-example`), e neste arquivo, altere as variáveis de ambiente:
+Dentro do projeto, crie um arquivo `.env` na raiz do projeto (copie o conteúdo do `.env-example`), cole e, neste arquivo, altere as variáveis de ambiente para configurar seu banco de dados:
 
 ```bash
-DB_HOST=[host do seu banco]
-DB_PORT=[porta do seu banco]
-DB_DATABASE=[banco de dados]
-DB_USERNAME=[usuario server]
-DB_PASSWORD=[senha server]
+DB_HOST=MY_HOST
+DB_PORT=MY_HOST_PORT
+DB_DATABASE=MY_DB
+DB_USERNAME=MY_USERNAME
+DB_PASSWORD=MY_PASS
 ```
-Crie uma chave para a aplicação e gere tabelas necessárias após isso:
+Crie uma chave para a aplicação e gere tabelas:
 ```bash
 php artisan key:generate
+
 php artisan migrate
+
+php artisan db:seed
 ```
 
-Agora de executar:
+Agora execute o comando para iniciar a ferramenta:
 ```bash
 php artisan serve
 ```
