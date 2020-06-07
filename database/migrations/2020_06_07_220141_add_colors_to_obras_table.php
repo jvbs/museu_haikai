@@ -14,7 +14,7 @@ class AddColorsToObrasTable extends Migration
     public function up()
     {
         Schema::table('obras', function (Blueprint $table) {
-            $table->smallInteger('color_id');
+            $table->smallInteger('color_id')->nullable();
 
             $table->index('color_id');
         });
