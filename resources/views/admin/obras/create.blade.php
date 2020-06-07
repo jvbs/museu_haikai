@@ -78,7 +78,7 @@
                                         color: {{ $cor->font_color }}
                                         padding: 10px 0"
                                         value="{{ $cor->id }}">
-                                        {{-- {{ $cor->id}} --}}
+                                        {{ $cor->id}}
                                     </option>
                                 @endforeach
                             </select>

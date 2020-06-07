@@ -81,6 +81,7 @@
                                             color: {{ $cor->font_color }}
                                             padding: 10px 0"
                                             value="{{ $cor->id }}">
+                                            {{ $cor->id }}
                                         </option>
                                     @else
                                         <option
@@ -88,6 +89,7 @@
                                             color: {{ $cor->font_color }}
                                             padding: 10px 0"
                                             value="{{ $cor->id }}">
+                                            {{ $cor->id }}
                                         </option>
                                     @endif
                                 @endforeach
