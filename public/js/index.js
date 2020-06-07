@@ -24,7 +24,12 @@ $(".open-modal").click(function(){
     displayCountdown(timer)
 });
 
+$('#modal-obra').on('hide.bs.modal', function (e) {
+    clearInterval(countdown)
+})
+
 function displayCountdown(timer){
+
     countdown = setInterval(function() {
         timer--;
         $("#modalTimer").html(timer);
