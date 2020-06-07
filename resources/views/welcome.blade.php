@@ -23,7 +23,7 @@
                 <div class="col-md-4">
                     <div class="card mb-4 box-shadow">
                         <div class="card-body">
-                            @if($obra->color->background_color)
+                            @if(isset($obra->color->background_color))
                                 <p class="card-text obra-titulo" style="background-color: {{ $obra->color->background_color }}; color: {{ $obra->color->font_color }}" >{{ $obra->nome }}</p>
                             @else
                                 <p class="card-text obra-titulo">{{ $obra->nome }}</p>
