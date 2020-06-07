@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<script src="{{ asset('js/color.js') }}" defer></script>
 <style>
     @media(max-width:582px){
         #timer-area {
@@ -20,7 +21,7 @@
                     <h5 class="card-title text-center">
                         <strong>Editar Obra</strong>
                     </h5>
-                    <form action="{{ route('admin.obras.update', $obra->id) }}" method="POST">
+                    <form action="{{ route('admin.obras.update', $data['obra']->id) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
@@ -28,7 +29,7 @@
                                 class="form-control @error('nome') is-invalid @enderror"
                                 name="nome"
                                 caption="nome"
-                                value="{{ old('nome') ?? $obra->nome }}">
+                                value="{{ old('nome') ?? $data['obra']->nome }}">
                                 @error('nome')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -40,7 +41,7 @@
                                 id="summernote"
                                 name="conteudo"
                                 class="@error('conteudo') is-invalid @enderror">
-                                    {{ old('conteudo') ?? $obra->conteudo }}
+                                    {{ old('conteudo') ?? $data['obra']->conteudo }}
                             </textarea>
 
                             @error('conteudo')
@@ -58,7 +59,7 @@
                                 name="timer"
                                 min="5"
                                 max="60"
-                                value="{{ old('timer') ?? $obra->timer }}"
+                                value="{{ old('timer') ?? $data['obra']->timer }}"
                                 style="width: 100%"/>
                             <div class="timer-group pl-3 pr-3 pt-2 d-flex">
                                 <span class="pr-2 h5" id="timer-caption">5</span>
@@ -66,8 +67,42 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <select
+                                class="form-control @error('color_id') is-invalid @enderror"
+                                name="color_id"
+                                id="color-input">
+                                <option value="">---SELECIONE UMA COR---</option>
+                                @foreach ($data['cores'] as $cor)
+                                    @if($data['obra']->color_id === $cor->id)
+                                        <option
+                                            selected
+                                            style="background-color: {{ $cor->background_color }};
+                                            color: {{ $cor->font_color }}
+                                            padding: 10px 0"
+                                            value="{{ $cor->id }}">
+                                        </option>
+                                    @else
+                                        <option
+                                            style="background-color: {{ $cor->background_color }};
+                                            color: {{ $cor->font_color }}
+                                            padding: 10px 0"
+                                            value="{{ $cor->id }}">
+                                        </option>
+                                    @endif
+                                @endforeach
+                            </select>
+
+                            @error('color_id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
                         <div class="form-group pull-right">
-                            <button type="submit" class="btn btn-success">Editar obra</button>
+                            <button type="submit" class="btn btn-success pull-right ml-2">Salvar</button>
+                            <a class="btn btn-danger pull-right" href="{{ route('admin.obras.show') }}" style="color:#fff"><strong>Cancelar</strong></a>
                         </div>
                     </form>
                 </div>

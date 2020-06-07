@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Obra;
 use App\User;
+use App\Colors;
 use Illuminate\Http\Request;
 
 class ObrasController extends Controller
@@ -15,7 +16,7 @@ class ObrasController extends Controller
 
     public function create()
     {
-        return view('admin.obras.create');
+        return view('admin.obras.create')->with('cores', Colors::all());
     }
 
 
@@ -24,7 +25,10 @@ class ObrasController extends Controller
         $data = $request->validate([
             'nome' => 'required|unique:obras|between:3,45',
             'conteudo' => 'required|unique:obras',
-            'timer' => 'required|integer|between:5,60'
+            'timer' => 'required|integer|between:5,60',
+            'color_id' => 'required|integer'
+        ], [], [
+            'color_id' => '"Cor"'
         ]);
 
         auth()->user()->obras()->create($data);
@@ -43,7 +47,12 @@ class ObrasController extends Controller
 
     public function edit(Obra $obras)
     {
-        return view('admin.obras.edit')->with('obra', $obras);
+        $data = [
+            'obra' => $obras,
+            'cores' => Colors::all()
+        ];
+
+        return view('admin.obras.edit')->with('data', $data);
     }
 
 
@@ -51,7 +60,10 @@ class ObrasController extends Controller
     {
         $request->validate([
             'nome' => 'required|between:3,45',
-            'conteudo' => 'required'
+            'conteudo' => 'required',
+            'color_id' => 'required|integer'
+        ], [], [
+            'color_id' => '"Cor"'
         ]);
 
         $request = collect($request->all())->filter(function($value) {

@@ -10,12 +10,10 @@ use App\Colors;
 class IndexController extends Controller
 {
     public function index(){
-        $obras = Obra::with('user')->orderBy('created_at', 'desc')->get();
-        $cores = Colors::all();
+        $obras = Obra::with('user')->with('color')->orderBy('created_at', 'desc')->get();
 
         return view('welcome', [
             'obras' => $obras,
-            'cores' => $cores,
         ]);
     }
 

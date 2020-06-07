@@ -2,6 +2,7 @@
 
 @section('content')
 <script src="{{ asset('js/localStorage.js') }}" defer></script>
+<script src="{{ asset('js/color.js') }}" defer></script>
 <style>
     @media(max-width:582px){
         #timer-area {
@@ -65,9 +66,33 @@
                                 <strong>segundos</strong>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <select
+                                class="form-control @error('color_id') is-invalid @enderror"
+                                name="color_id"
+                                id="color-input">
+                                <option value="">---SELECIONE UMA COR---</option>
+                                @foreach ($cores as $cor)
+                                    <option
+                                        style="background-color: {{ $cor->background_color }};
+                                        color: {{ $cor->font_color }}
+                                        padding: 10px 0"
+                                        value="{{ $cor->id }}">
+                                        {{-- {{ $cor->id}} --}}
+                                    </option>
+                                @endforeach
+                            </select>
+
+                            @error('color_id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
 
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success">Criar obra</button>
+                            <button type="submit" class="btn btn-success pull-right ml-2"><strong>Cadastrar</strong></button>
+                            <a class="btn btn-danger pull-right" href="{{ route('admin.obras.show') }}" style="color:#fff"><strong>Cancelar</strong></a>
                         </div>
                     </form>
                 </div>

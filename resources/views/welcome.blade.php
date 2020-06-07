@@ -23,8 +23,11 @@
                 <div class="col-md-4">
                     <div class="card mb-4 box-shadow">
                         <div class="card-body">
-                            @php $rand =  rand(0, (count($cores)-1)) @endphp
-                            <p class="card-text obra-titulo" style="background-color: {{ $cores[$rand]->background_color }}; color: {{ $cores[$rand]->font_color }}" >{{ $obra->nome }}</p>
+                            @if($obra->color->background_color)
+                                <p class="card-text obra-titulo" style="background-color: {{ $obra->color->background_color }}; color: {{ $obra->color->font_color }}" >{{ $obra->nome }}</p>
+                            @else
+                                <p class="card-text obra-titulo">{{ $obra->nome }}</p>
+                            @endif
                             <textarea type="text" class="obra-conteudo d-none">
                                 {{ $obra->conteudo }}
                             </textarea>
